@@ -5,6 +5,7 @@ on:
     branches: [main]
 
 permissions:
+  contents: read
   pages: write
   id-token: write
 
@@ -22,6 +23,13 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: frontend
+
+      # 👉 加上這段明確使用 v2 避開 v3 bug
+      - name: Patch artifact fallback
+        uses: actions/upload-artifact@v2
+        with:
+          name: skip
+          path: README.md
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
