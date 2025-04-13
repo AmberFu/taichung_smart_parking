@@ -32,3 +32,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+      
+      - name: Notify Render to Redeploy Backend
+        run: |
+          curl -X POST https://api.render.com/deploy/srv-cvttlmp5pdvs73e0v2k0?key=hZ4WAcXkUg4

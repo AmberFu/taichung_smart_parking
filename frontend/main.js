@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!keyword) return alert("請輸入地點名稱");
 
     try {
-      const res = await fetch(`https://your-render-api.onrender.com/query?keyword=${encodeURIComponent(keyword)}`);
+      const res = await fetch(`https://taichung-smart-parking.onrender.com/query?keyword=${encodeURIComponent(keyword)}`);
       const data = await res.json();
 
       if (data.error) return alert(data.error);
