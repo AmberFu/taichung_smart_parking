@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台中智慧停車助理</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="main.js"></script>
+  <script defer src="service-worker.js"></script>
+  <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+</head>
+<body>
+  <h1>🚗 台中智慧停車助理</h1>
+  <div id="controls">
+    <input type="text" id="searchBox" placeholder="輸入地點，例如：勤美">
+    <button id="searchBtn">查詢</button>
+  </div>
+  <div id="map"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('Service Worker 註冊成功'))
+        .catch(err => console.log('Service Worker 註冊失敗:', err));
+    }
+  </script>
+</body>
+</html>
