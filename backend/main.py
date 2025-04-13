@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from parking_agents.core import run_agent_pipeline
-from parking_agents.mcp_server import mcp_router
+# from parking_agents.mcp_server import mcp_router
 
 app = FastAPI()
 
@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(mcp_router, prefix="/mcp")
+# app.include_router(mcp_router, prefix="/mcp")
 
 @app.get("/ping")
 def ping():
